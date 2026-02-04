@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import '../css/Login.css';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
   return (
@@ -21,6 +22,13 @@ export default function Login() {
                         <Button variant="primary" type="submit">
                             Login
                         </Button>
+
+                        <p className="center-text mt-3">
+                            Don't have an account? 
+                            <Link to="/signup" className="ms-1">
+                                Register here.
+                            </Link>
+                        </p>
                     </Form>                    
                 </Col>
             </Row>

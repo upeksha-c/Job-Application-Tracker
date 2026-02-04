@@ -83,3 +83,7 @@
   border: none;                  
   transform: translateY(-8px);   
 }
+
+.center-text {
+  text-align: center;
+}
