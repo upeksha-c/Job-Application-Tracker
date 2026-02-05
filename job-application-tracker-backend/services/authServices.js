@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 // Service function to handle user signup
 export async function signUpUserService({ user_name, email, phone_no, password }) {
     try {
-        const {data, error} = await supabase.auth.admin.createUser({
+        const {data, error} = await supabaseAdmin.auth.admin.createUser({
             email,
             password,
             email_confirm: true,   // Automatically confirm email for simplicity
