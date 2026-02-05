@@ -51,10 +51,12 @@ export default function Login() {
                         <Form.Group className="mb-3" controlId="loginEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            {error.email && <Form.Text className="text-danger">{error.email}</Form.Text>}
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="loginPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            {error.password && <Form.Text className="text-danger">{error.password}</Form.Text>}
                         </Form.Group>
                         <Button variant="primary" type="submit" onClick={handleLogin}>
                             Login
@@ -66,7 +68,8 @@ export default function Login() {
                                 Register here.
                             </Link>
                         </p>
-                    </Form>                    
+                    </Form>  
+                    {error.apiError && <p className="text-danger mt-3">{error.apiError}</p>}                  
                 </Col>
             </Row>
         </Container> 

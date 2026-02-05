@@ -69,18 +69,22 @@ export default function SignUp() {
                         <Form.Group className="mb-3" controlId="signUpUserName">
                             <Form.Label>User Name</Form.Label>
                             <Form.Control type="text" placeholder="Enter user name" value={userName} onChange={(e) => setUserName(e.target.value)} />
+                            {error.userName && <Form.Text className="text-danger">{error.userName}</Form.Text>}
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="signUpEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            {error.email && <Form.Text className="text-danger">{error.email}</Form.Text>}
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="signUpPhone">
                             <Form.Label>Phone Number</Form.Label>
                             <Form.Control type="tel" placeholder="Enter phone number" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                            {error.phone && <Form.Text className="text-danger">{error.phone}</Form.Text>}
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="signUpPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            {error.password && <Form.Text className="text-danger">{error.password}</Form.Text>}
                         </Form.Group>
                         <Button variant="primary" type="submit" onClick={handleSignUp}>
                             Sign Up
@@ -92,6 +96,7 @@ export default function SignUp() {
                             </Link>
                         </p>
                     </Form>
+                    {error.apiError && <p className="text-danger mt-3">{error.apiError}</p>}
                 </Col>
             </Row>
         </Container>
