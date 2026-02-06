@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
 import saveApplicationRoute from './routes/saveApplicationRoute.js';
 import latestApplicationRoute from './routes/latestApplicationRoute.js';
+import allApplicationRoute from './routes/allApplicationRoute.js';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -26,6 +27,9 @@ app.use('/application', saveApplicationRoute);
 
 //fetch latest applications
 app.use('/latest-applications', latestApplicationRoute);
+
+//fetch all applications route
+app.use('/all-applications', allApplicationRoute);
 
 // Sample route to test the server
 app.get('/', (req, res) => {
