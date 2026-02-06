@@ -14,6 +14,7 @@ export async function saveApplication(
         contact_email, 
         contact_phone, 
         application_link, 
+        application_date,
         resume, 
         notes
     }) {
@@ -41,6 +42,7 @@ export async function saveApplication(
             }
 
             //store data in applications table with cv_path
+            console.log("application date", application_date);
             const { error:appError } = await supabaseAdmin
                 .from("applications")
                 .insert({
@@ -52,11 +54,12 @@ export async function saveApplication(
                     job_location,
                     job_description,
                     contact_person,
-                    salary_range,
+                    salary_range: salary_range !== "" ? Number(salary_range) : null, 
                     contact_email,
                     contact_phone,
                     application_link,
                     cv_path: cv_path, // Store the path to the uploaded resume
+                    application_date,
                     notes
                 })
 

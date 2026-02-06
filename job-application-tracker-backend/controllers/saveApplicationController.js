@@ -14,6 +14,7 @@ export async function saveApplicationController(req, res) {
             contact_email, 
             contact_phone, 
             application_link, 
+            application_date,
             notes
         } = req.body;
         const resume = req.file; // Get the uploaded file from the request
@@ -32,6 +33,7 @@ export async function saveApplicationController(req, res) {
             contact_email,
             contact_phone,
             application_link,
+            application_date: new Date(application_date).toISOString(), // Convert to Date object
             resume,
             notes
         });
