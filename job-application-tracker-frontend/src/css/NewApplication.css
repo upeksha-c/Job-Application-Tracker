@@ -1,0 +1,141 @@
+.new-application-page {
+  min-height: calc(100vh - 70px);          
+  background: linear-gradient(135deg, #1f1f23 0%, #764ba2 100%);
+  padding: 2rem 1rem;
+  color: #1f1f23;
+}
+
+.new-application-page h1,
+.card-header {
+  color: #bd9bde;                           
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  text-align: center;
+}
+
+.card {
+  background: linear-gradient(135deg, #f0e8ff 0%, #e6d9ff 100%); 
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.3),
+    0 8px 20px -5px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+  transition: all 0.35s ease;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.4),
+    0 12px 30px -8px rgba(0, 0, 0, 0.25);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #6c3193, #4a1e70);
+  color: white;
+  font-size: 1.35rem;
+  font-weight: 600;
+  padding: 1.1rem 1.5rem;
+  border-bottom: none;
+  border-radius: 16px 16px 0 0;
+  text-align: center;
+}
+
+.card-body {
+  padding: 2.2rem 2rem;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #3a1e5a;                           
+  margin-bottom: 0.55rem;
+}
+
+.form-control,
+.form-select {
+  border: 1px solid #c9b3e6;
+  border-radius: 10px;
+  padding: 0.7rem 1.1rem;
+  background-color: white;
+  color: #1f1f23;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #632a95;
+  box-shadow: 0 0 0 3px rgba(99, 42, 149, 0.15);
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: #a080c0;
+}
+
+.form-control[as="textarea"] {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.form-check-input {
+  border-color: #a080c0;
+}
+
+.form-check-input:checked {
+  background-color: #632a95;
+  border-color: #632a95;
+}
+
+.form-check-label {
+  color: #3a1e5a;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: #2e0b46;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.8rem 2.2rem;
+  border-radius: 10px;
+  transition: all 0.28s ease;
+  margin-top: 1.8rem;
+  width: 100%;
+  max-width: 220px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-primary:hover {
+  background-color: #632a95;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 42, 149, 0.38);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 576px) {
+  .new-application-page {
+    padding: 1.5rem 1rem;
+  }
+
+  .card-body {
+    padding: 1.8rem 1.5rem;
+  }
+
+  .card {
+    border-radius: 14px;
+  }
+
+  .card-header {
+    font-size: 1.25rem;
+    padding: 1rem 1.25rem;
+  }
+}

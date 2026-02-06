@@ -17,9 +17,9 @@ export default function Sidebar({ show, onHide }) {
   
   const menuItems = [
     { path: "/dashboard", icon: <FaTachometerAlt />, label: "Dashboard" },
-    { path: "/searchTasks", icon: <FaBook />, label: "Search Tasks" },
-    { path: "/addTasks", icon: <FaUniversity  />, label: "Add Tasks" },
-    { path: "/productivityReports", icon: <FaChartBar />, label: "Reports" },
+    { path: "/search", icon: <FaBook />, label: "Search" },
+    { path: "/addNew", icon: <FaUniversity  />, label: "New Application" },
+    { path: "/reports", icon: <FaChartBar />, label: "Reports" },
     { path: "/profile", icon: <FaUser />, label: "Profile" },
   ];
 

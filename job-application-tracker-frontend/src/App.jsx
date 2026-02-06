@@ -5,6 +5,7 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard';
 import HomeLayout from './layouts/HomeLayout';
+import NewApplication from './components/NewApplication';
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route  element={<HomeLayout />} >
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/addNew" element={<NewApplication />} />
         </Route>
       </Routes>
     </Router>
