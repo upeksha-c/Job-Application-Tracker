@@ -33,6 +33,7 @@ export default function Login() {
                 const response = await loginUser({email, password});
                 localStorage.setItem('token', response.token);
                 localStorage.setItem('user', JSON.stringify(response.user))
+                console.log("token:", response.token);
                 navigation("/dashboard");
             } catch (err) {
                 setError({apiError: "Login failed. Please check your credentials and try again."});

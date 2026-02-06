@@ -2,6 +2,8 @@ import React from 'react'
 import { Card, Col, Container, Form, Row, Button } from 'react-bootstrap'
 import { useState } from 'react'
 import '../css/NewApplication.css'
+import { saveApplication } from './newApplicationService.js';
+import { useNavigate } from 'react-router-dom';
 
 export default function NewApplication() {
     const [company, setCompany] = useState("")
@@ -18,10 +20,84 @@ export default function NewApplication() {
     const [contactPhone, setContactPhone] = useState("")
     const [applicationLink, setApplicationLink] = useState("")
     const [resume, setResume] = useState(null)
+    const [error, setError] = useState({})
+
+    const navigate = useNavigate();
 
     // set up options for status dropdown
     const statusOptions = ["Applied", "Interviewing", "Offered", "Rejected"]
     const requirementsMetOptions = ["Yes", "No", "Partially"]
+
+    // Handle form submission
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // Prevent default form submission behavior
+        const newErrors = {};
+        if (!company) {
+            newErrors.company = "Company name is required";
+            console.log("Company name is required");
+        }
+        if (!position) {
+            newErrors.position = "Position is required";
+        }
+        if (!status) {
+            newErrors.status = "Status is required";
+        }
+        if (!applicationDate) {
+            newErrors.applicationDate = "Application date is required";
+        }
+        if(!jobLocation) {
+            newErrors.jobLocation = "Job location is required";
+        }
+        setError(newErrors);
+
+        //Continue only if there are no validation errors
+        if (Object.keys(newErrors).length === 0) {
+            const applicationData = {
+                company,
+                position,
+                status,
+                application_date: applicationDate,
+                job_description: jobDescription,
+                requirements_met: requirementsMet,
+                job_location: jobLocation,
+                salary_range: salaryRange,
+                contact_person: contactPerson,
+                contact_email: contactEmail,
+                contact_phone: contactPhone,
+                application_link: applicationLink,
+                resume,
+                notes
+            };
+
+            try {
+                const response = await saveApplication({applicationData}); 
+                console.log("Application saved successfully:", response);
+                if (response.success) {
+                    navigate("/dashboard");
+                }
+
+            } catch (error) {
+                console.error("Error saving application:", error);
+                setError({apiError: "An error occurred while saving the application. Please try again."});
+            } finally {
+                // Reset form fields after submission
+                setCompany("");
+                setPosition("");
+                setStatus("");
+                setApplicationDate("");
+                setJobDescription("");
+                setRequirementsMet("");
+                setJobLocation("");
+                setSalaryRange("");
+                setContactPerson("");
+                setContactEmail("");
+                setContactPhone("");
+                setApplicationLink("");
+                setResume(null);
+                setNotes("");
+            }
+        }
+    }
   return (
     <div>
         <Container>
@@ -30,27 +106,29 @@ export default function NewApplication() {
                     <Card.Body className="card-body">
                         <Form>
                             <Form.Group className="mb-3" controlId="formTitleCompany">
-                                <Form.Label>Company Name</Form.Label>
+                                <Form.Label>Company Name *</Form.Label>
                                 <Form.Control required
                                     type="text" 
                                     placeholder="Enter company name" 
                                     value={company}
                                     onChange={(e) => setCompany(e.target.value)}
                                     />
+                                {error.company && <Form.Text className="text-danger">{error.company}</Form.Text>}
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formTitlePosition">
-                                <Form.Label>Position</Form.Label>
+                                <Form.Label>Position *</Form.Label>
                                 <Form.Control required
                                     type="text" 
                                     placeholder="Enter position" 
                                     value={position}
                                     onChange={(e) => setPosition(e.target.value)}
                                     />
+                                {error.position && <Form.Text className="text-danger">{error.position}</Form.Text>}
                             </Form.Group>
                             <Row className="mb-3">
                                 <Col sm={12} md={6} lg={6}>
                                     <Form.Group className="mb-3" controlId="formTitleStatus">
-                                        <Form.Label>Status</Form.Label>
+                                        <Form.Label>Status *</Form.Label>
                                         <Form.Select required
                                             value={status}
                                             onChange={(e) => setStatus(e.target.value)}
@@ -62,16 +140,18 @@ export default function NewApplication() {
                                                 </option>
                                             ))}
                                         </Form.Select>
+                                        {error.status && <Form.Text className="text-danger">{error.status}</Form.Text>}
                                     </Form.Group>
                                 </Col>
                                 <Col sm={12} md={6} lg={6}>
                                     <Form.Group className="mb-3" controlId="formApplicationDate">
-                                        <Form.Label>Application Date</Form.Label>
+                                        <Form.Label>Application Date *</Form.Label>
                                         <Form.Control required
                                             type="date" 
                                             value={applicationDate}
                                             onChange={(e) => setApplicationDate(e.target.value)}
                                             />
+                                        {error.applicationDate && <Form.Text className="text-danger">{error.applicationDate}</Form.Text>}
                                     </Form.Group>
                                 </Col>
                             </Row>
@@ -107,14 +187,16 @@ export default function NewApplication() {
                             <Row className="mb-3">
                                 <Col sm={12} md={6} lg={6}>
                                     <Form.Group className="mb-3" controlId="formJobLocation">
-                                        <Form.Label>Job Location</Form.Label>
+                                        <Form.Label>Job Location *</Form.Label>
                                         <Form.Control 
                                             type="text"
                                             placeholder="Enter job location"
                                             value={jobLocation}
                                             onChange={(e) => setJobLocation(e.target.value)}
                                         />
+                                        {error.jobLocation && <Form.Text className="text-danger">{error.jobLocation}</Form.Text>}
                                     </Form.Group>
+
                                 </Col>
                                 <Col sm={12} md={6} lg={6}>
                                     <Form.Group className="mb-3" controlId="formSalaryRange">
@@ -191,8 +273,8 @@ export default function NewApplication() {
                                 />
                             </Form.Group>
                             
-                            <Button variant="primary" type="submit">
-                                Submit
+                            <Button variant="primary" type="submit" onClick={handleSubmit}>
+                                Save Application
                             </Button>
                         </Form>
                     </Card.Body>
