@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
 import saveApplicationRoute from './routes/saveApplicationRoute.js';
+import latestApplicationRoute from './routes/latestApplicationRoute.js';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -22,6 +23,9 @@ app.use('/auth', authRoutes);
 
 // save application route
 app.use('/application', saveApplicationRoute);
+
+//fetch latest applications
+app.use('/latest-applications', latestApplicationRoute);
 
 // Sample route to test the server
 app.get('/', (req, res) => {
