@@ -6,6 +6,7 @@ import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard';
 import HomeLayout from './layouts/HomeLayout';
 import NewApplication from './components/NewApplication';
+import SearchApplications from './components/SearchApplications';
 
 function App() {
   
@@ -18,6 +19,7 @@ function App() {
         <Route  element={<HomeLayout />} >
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/addNew" element={<NewApplication />} />
+          <Route path="/search" element={<SearchApplications />} />
         </Route>
       </Routes>
     </Router>

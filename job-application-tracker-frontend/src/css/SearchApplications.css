@@ -1,0 +1,29 @@
+.search-applications-toggle {
+  text-align: left !important;
+  justify-content: space-between;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-applications-input-group .form-control,
+.search-applications-toggle {
+  height: 48px;                  
+  font-size: 1rem;
+}
+
+.btn-search-filter {
+  font-size: 1.1rem;
+  min-width: 240px;
+  box-shadow: 0 5px 15px rgba(46, 11, 70, 0.3);
+}
+
+.btn-search-filter:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(99, 42, 149, 0.45);
+}
+
+.row.g-4 [class*="col-"] {
+  display: flex;
+  align-items: stretch;
+}
