@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
+import saveApplicationRoute from './routes/saveApplicationRoute.js';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -19,6 +20,8 @@ app.use(express.json());
 //Rote to signup and login
 app.use('/auth', authRoutes);
 
+// save application route
+app.use('/application', saveApplicationRoute);
 
 // Sample route to test the server
 app.get('/', (req, res) => {
