@@ -1,0 +1,114 @@
+.py-4 {
+  padding: 2rem 1.5rem;
+  min-height: calc(100vh - 70px); 
+  background: linear-gradient(135deg, #1f1f23 0%, #764ba2 100%);
+  color: #e0e0e0;
+}
+
+.py-4 h1 {
+  font-weight: 700;
+  color: #bd9bde;               
+  margin-bottom: 2rem;
+  font-size: 2.1rem;
+  letter-spacing: -0.4px;
+  text-align: center;          
+}
+
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.mode-switch {
+  display: flex;
+  background: rgba(30, 25, 55, 0.55);     
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 50px;                 
+  border: 1px solid rgba(99, 66, 150, 0.3);
+  padding: 0.35rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.mode-btn {
+  flex: 1;
+  min-width: 160px;
+  padding: 0.75rem 1.6rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #d0c0e8;
+  background: transparent;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.28s ease;
+  white-space: nowrap;
+}
+
+.mode-btn:hover {
+  color: #ffffff;
+  background: rgba(99, 66, 150, 0.18);
+}
+
+.mode-btn.active {
+  background: linear-gradient(135deg, #2e0b46, #632a95); 
+  color: white;
+  box-shadow: 0 4px 15px rgba(99, 42, 149, 0.45);
+  transform: translateY(-1px);
+}
+
+#latest-panel,
+#all-panel {
+  background: linear-gradient(135deg, #b7b7ce 0%, #bd9bde 100%);
+  border-radius: 20px;
+  padding: 2rem 1.8rem;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.35),
+    0 10px 25px -5px rgba(0, 0, 0, 0.25);
+  border: none;
+  transform: translateY(-6px);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  color: #1a1a2e; 
+}
+
+#latest-panel:hover,
+#all-panel:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 35px 70px -15px rgba(0, 0, 0, 0.45),
+    0 15px 35px -8px rgba(0, 0, 0, 0.3);
+}
+
+[hidden] {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .py-4 {
+    padding: 1.5rem 1rem;
+  }
+
+  .mode-switch {
+    width: 100%;
+    padding: 0.3rem;
+  }
+
+  .mode-btn {
+    padding: 0.65rem 1.2rem;
+    font-size: 0.98rem;
+    min-width: auto;
+  }
+
+  #latest-panel,
+  #all-panel {
+    padding: 1.8rem 1.4rem;
+    border-radius: 16px;
+    transform: translateY(-4px);
+  }
+
+  .py-4 h1 {
+    font-size: 1.8rem;
+  }
+}

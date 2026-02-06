@@ -1,0 +1,46 @@
+.main-navbar {
+  background: linear-gradient(180deg, #1f1f23 0%, #2e1a4a 100%);  
+  border-bottom: 1px solid #4a2c6e;                               
+  box-shadow: 0 4px 16px rgba(99, 66, 150, 0.25);                 
+  padding: 0.75rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+.navbar-brand {
+  color: #bd9bde !important;              
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  transition: transform 0.18s, color 0.2s;
+}
+
+.navbar-brand:hover {
+  color: #d4b8ff !important;               
+  transform: scale(1.02);
+}
+
+.nav-link,
+.btn-link {
+  color: #d0c0e8 !important;               
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.btn-link:hover {
+  color: #bd9bde !important;               
+}
+
+.logout-btn:hover {
+  color: #ff6b9d !important;               
+}
+
+
+.d-md-none .btn-link {
+  padding: 0.5rem;
+  color: #d0c0e8 !important;
+}
+
+.d-md-none .btn-link:hover {
+  color: #bd9bde !important;
+}
