@@ -30,6 +30,7 @@ export default function NewApplication() {
 
     // Handle form submission
     const handleSubmit = async (e) => {
+        console.log("application date", applicationDate);
         e.preventDefault(); // Prevent default form submission behavior
         const newErrors = {};
         if (!company) {
@@ -60,7 +61,7 @@ export default function NewApplication() {
                 job_description: jobDescription,
                 requirements_met: requirementsMet,
                 job_location: jobLocation,
-                salary_range: salaryRange,
+                salary_range: salaryRange ,
                 contact_person: contactPerson,
                 contact_email: contactEmail,
                 contact_phone: contactPhone,
@@ -202,7 +203,7 @@ export default function NewApplication() {
                                     <Form.Group className="mb-3" controlId="formSalaryRange">
                                         <Form.Label>Salary Range</Form.Label>
                                         <Form.Control
-                                            type="text"
+                                            type="number"
                                             placeholder="Enter salary range"
                                             value={salaryRange}
                                             onChange={(e) => setSalaryRange(e.target.value)}

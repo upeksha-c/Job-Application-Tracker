@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import LastestApplications from './LastestApplications.jsx';
-import AllAplications from './AllAplications.jsx';
+import AllApplications from './AllApplications.jsx';
 import '../css/Dashboard.css';
 
 export default function Dashboard() {
@@ -50,7 +50,7 @@ export default function Dashboard() {
             aria-labelledby='tab-all'
             hidden={activeTab !== 'all'}
         >
-            <AllAplications />
+            <AllApplications />
         </div>        
     </div>
   )

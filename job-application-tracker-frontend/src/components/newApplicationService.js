@@ -15,6 +15,7 @@ export async function saveApplication({applicationData}) {
     formData.append("application_link", applicationData.application_link);
     formData.append("notes", applicationData.notes);
     formData.append("resume", applicationData.resume); 
+    formData.append("application_date", applicationData.application_date);
     const token = localStorage.getItem("token");
 
     const API_URL = import.meta.env.VITE_API_URL;

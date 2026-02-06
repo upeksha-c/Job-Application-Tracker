@@ -1,0 +1,120 @@
+.latest-applications-container {
+  background: linear-gradient(135deg, #1f1f23 0%, #764ba2 100%);
+  min-height: 100%;
+  padding: 1.5rem 1rem;
+  border-radius: 0 0 20px 20px; 
+}
+
+.latest-applications-container h2,
+.latest-applications-container .no-applications {
+  color: #bd9bde;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: -0.3px;
+}
+
+.card {
+  background: linear-gradient(135deg, #b7b7ce 0%, #bd9bde 100%);
+  border: none;
+  border-radius: 16px;
+  margin-bottom: 1.5rem !important;
+  box-shadow: 
+    0 12px 32px -8px rgba(0, 0, 0, 0.3),
+    0 6px 16px -4px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  transition: all 0.32s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;                   
+  background: #632a95;          
+  border-radius: 16px 0 0 16px; 
+  box-shadow: 0 0 12px rgba(99, 42, 149, 0.4); 
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 50px -12px rgba(0, 0, 0, 0.4),
+    0 10px 25px -6px rgba(0, 0, 0, 0.25);
+}
+
+.card-body {
+  padding: 1.6rem 1.8rem;
+}
+
+.card-title {
+  color: #2e0b46;               
+  font-weight: 700;
+  font-size: 2.0rem;
+  margin-bottom: 0.6rem;
+}
+
+.card-subtitle {
+  color: #4a2c6e;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.card-text {
+  color: #3a1e5a;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.card-text strong {
+  color: #2e0b46;
+  font-weight: 600;
+}
+
+.no-applications {
+  font-size: 1.1rem;
+  color: #d0c0e8;
+  text-align: center;
+  padding: 3rem 1rem;
+  background: rgba(46, 11, 70, 0.15);
+  border-radius: 12px;
+  border: 1px dashed #632a95;
+}
+
+.status-value {
+  display: inline-block;
+  padding: 0.35em 0.75em;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-left: 0.4rem;
+}
+
+
+[data-status="applied"] .status-value     { background: #6366f1; color: white; }
+[data-status="interviewing"] .status-value { background: #f59e0b; color: white; }
+[data-status="offered"] .status-value      { background: #10b981; color: white; }
+[data-status="rejected"] .status-value     { background: #ef4444; color: white; }
+
+@media (max-width: 576px) {
+  .latest-applications-container {
+    padding: 1rem 0.8rem;
+  }
+
+  .card-body {
+    padding: 1.4rem 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+  }
+
+  .card-subtitle {
+    font-size: 1rem;
+  }
+}
