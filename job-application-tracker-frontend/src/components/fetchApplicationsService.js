@@ -46,3 +46,17 @@ export async function searchApplicationsService(filters) {
         throw new Error("Failed to search applications. Please try again.");
     }
 }
+
+export async function fetchApplicationDetails(id) {
+    try {
+        const response = await axios.get(`${API_URL}/applications/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching application details:", error);
+        throw new Error("Failed to fetch application details. Please try again.");
+    }
+}

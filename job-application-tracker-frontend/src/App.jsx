@@ -9,6 +9,7 @@ import NewApplication from './components/NewApplication';
 import SearchApplications from './components/SearchApplications';
 import Profile from './components/Profile';
 import PrivateRoute from './components/PrivateRoute';
+import ApplicationDetails from './components/ApplicationDetails';
 
 function App() {
   
@@ -24,6 +25,7 @@ function App() {
             <Route path="/addNew" element={<NewApplication />} />
             <Route path="/search" element={<SearchApplications />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/applications/:id" element={<ApplicationDetails />}  />
           </Route>
         </Route>
       </Routes>

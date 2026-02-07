@@ -3,9 +3,11 @@ import { fetchLatestApplications } from './fetchApplicationsService'
 import { useState, useEffect } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import '../css/LatestApplications.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function LastestApplications() {
   const [latestApplications, setLatestApplications] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,12 +20,17 @@ export default function LastestApplications() {
     };
     fetchData();
   }, []);
+
+  const navigateCardDetails = (app) => {
+    navigate(`/applications/${app.id}`)
+  }
+
   return (
     <div className="latest-applications-container">
       <Container >
         {latestApplications.length > 0 ? (
           latestApplications.map((app, index) => (
-            <Card key={index} className="mb-4 shadow-sm" data-status={app.status?.toLowerCase()}>
+            <Card key={index} className="mb-4 shadow-sm" data-status={app.status?.toLowerCase()} onClick={() => navigateCardDetails(app)}>
               <Card.Body>
                 <Card.Title className="d-flex justify-content-between align-items-center">
                   {app.company}   
@@ -41,8 +48,8 @@ export default function LastestApplications() {
           ))
         ) : (
           <p className="no-applications">
-              No recent applications found.
-            </p>
+            No recent applications found.
+          </p>
         )}
       </Container>
     </div>

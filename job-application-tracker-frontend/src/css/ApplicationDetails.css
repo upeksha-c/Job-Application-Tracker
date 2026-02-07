@@ -1,0 +1,150 @@
+.application-details-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f1f23 0%, #764ba2 100%);
+  padding: 1.5rem 1rem;
+  color: #2e0b46;
+}
+
+.application-details-page .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.application-details-page .page-title {
+  color: #bd9bde;
+  font-weight: 800;
+  font-size: 2.4rem;
+  letter-spacing: -0.5px;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 2px 10px rgba(46, 11, 70, 0.3);
+}
+
+.application-details-page .my-super-unique-detail-card-xyz {
+  background: linear-gradient(135deg, #f8f5ff 0%, #f0e8ff 100%);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px -15px rgba(0,0,0,0.4);
+  transform: translateY(-6px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.application-details-page .my-super-unique-detail-card-xyz:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 40px 80px -20px rgba(0,0,0,0.45);
+}
+
+.application-details-page .detail-header {
+  background: linear-gradient(135deg, #2e0b46, #4a1e70);
+  color: white;
+  padding: 1.4rem 2rem;
+  border-radius: 20px 20px 0 0;
+  border-bottom: none;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.application-details-page .detail-header .row {
+  align-items: center;
+}
+
+.application-details-page .info-block {
+  
+  border-radius: 20px;
+  padding: 1rem;
+  border: 1px solid rgba(99, 42, 149, 0.18);
+  transition: all 0.25s ease;
+  margin-top: 2%;
+  padding-bottom: 0%;
+}
+
+.application-details-page .info-block:hover {
+  background: white;
+  box-shadow: 0 6px 20px rgba(99, 42, 149, 0.2);
+}
+
+.application-details-page .info-title {
+  font-size: 0.95rem;
+  color: #4a2c6e;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.application-details-page .info-value {
+  font-size: 1.15rem;
+  color: #2e0b46;
+  font-weight: 500;
+}
+
+.application-details-page .status-badge {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.55em 1.4em;
+  border-radius: 2rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+}
+
+.application-details-page .section-title {
+  color: #2e0b46;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 2.2rem 0 1.2rem 0;
+}
+
+.application-details-page .notes-block {
+  background: rgba(99, 42, 149, 0.07);
+  border-radius: 12px;
+  padding: 1.4rem;
+  border-left: 5px solid #632a95;
+  white-space: pre-wrap;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #3a1e5a;
+}
+
+.application-details-page .card-footer {
+  background: rgba(46, 11, 70, 0.05);
+  color: #4a2c6e;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(99, 42, 149, 0.15);
+  border-radius: 0 0 20px 20px;
+}
+
+.application-details-page .btn-outline-primary,
+.application-details-page .btn-outline-success {
+  border-radius: 10px;
+  transition: all 0.25s;
+}
+
+.application-details-page .btn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .application-details-page .page-title {
+    font-size: 2.1rem;
+  }
+  .application-details-page .card-body {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .application-details-page .page-title {
+    font-size: 1.9rem;
+  }
+  .application-details-page .my-super-unique-detail-card-xyz {
+    transform: translateY(-4px);
+  }
+  .application-details-page .detail-header {
+    font-size: 1.35rem;
+    padding: 1.2rem;
+  }
+}
