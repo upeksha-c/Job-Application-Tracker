@@ -7,6 +7,7 @@ import latestApplicationRoute from './routes/latestApplicationRoute.js';
 import allApplicationRoute from './routes/allApplicationRoute.js';
 import searchApplicationsRoute from './routes/searchApplicationsRoute.js';
 import fetchProfileInfoRoute from './routes/fetchProfileInfoRoute.js';
+import fetchApplicationDetailsRoute from './routes/fetchApplicationDetailsRoute.js';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -42,6 +43,8 @@ app.use('/profile', fetchProfileInfoRoute);
 app.get('/', (req, res) => {
   res.send('Welcome to the Job Application Tracker API!');
 });
+//get application details route
+app.use('/applications', fetchApplicationDetailsRoute);
 
 // Start the server
 app.listen(PORT, () => {
