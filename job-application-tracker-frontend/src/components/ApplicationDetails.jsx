@@ -4,12 +4,15 @@ import { useState, useEffect } from 'react';
 import { fetchApplicationDetails } from './fetchApplicationsService.js';
 import { Card, Container, Row, Col, Badge, ListGroup } from 'react-bootstrap';
 import '../css/ApplicationDetails.css';
+import { fetchApplicationCV } from './fetchApplicationsService.js';
 
 export default function ApplicationDetails() {
     const { id } = useParams();
     const [applicationDetails, setApplicationDetails] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [url, setUrl] = useState(null);
+    const [loadingCV, setLoadingCV] = useState(false);
 
     useEffect(() => {
         const fetchDetails = async () => {
@@ -25,13 +28,13 @@ export default function ApplicationDetails() {
             }
         };
         fetchDetails();    
-        }, [id]);
+    }, [id]);
 
         if (loading) {
             return (
             <Container className="py-5 text-center">
                 <div className="spinner-border text-primary" role="status">
-                <span className="visually-hidden">Loading...</span>
+                    <span className="visually-hidden">Loading...</span>
                 </div>
             </Container>
             );
@@ -46,6 +49,23 @@ export default function ApplicationDetails() {
             </Container>
             );
         }
+
+        const getUrl = async (id) => {
+            setLoadingCV(true);
+            try {
+                const response = await fetchApplicationCV(id);
+                if (!response) {
+                    return alert('CV not found for this application.');
+                }
+                setUrl(response);
+                window.open(response, '_blank', 'noopener,noreferrer');
+            } catch (error) {
+                setError('Failed to fetch CV. Please try again.');
+            } finally {
+                setLoadingCV(false);
+            }
+        }
+    
 
   return (
     <div className="application-details-isolated-wrapper">
@@ -174,15 +194,18 @@ export default function ApplicationDetails() {
                                 <Col xs={12} >
                                     <div className="d-flex flex-wrap gap-3 mt-3">
                                         {applicationDetails.cv_path ? (
-                                            <a
-                                                href={applicationDetails.cv_path}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
+                                            <button
                                                 className="btn btn-outline-success"
+                                                onClick={() => getUrl(applicationDetails.id)}
+                                                disabled={loadingCV}
                                             >
-                                            <i className="bi bi-file-earmark-pdf me-2"></i>
+                                                {loadingCV ? (
+                                                    <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                                ) : (
+                                                    <i className="bi bi-file-earmark-pdf me-2"></i>
+                                                )}
                                                 View CV
-                                            </a>
+                                            </button>
                                         ) : (
                                             <span className="text-muted">No CV uploaded</span>
                                         )}

@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function LastestApplications() {
   const [latestApplications, setLatestApplications] = useState([]);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
@@ -15,7 +16,7 @@ export default function LastestApplications() {
         console.log("Fetched applications:", data);
         setLatestApplications(data);
       } catch (error) {
-        console.error(error);
+        setError(error.message);
       }
     };
     fetchData();
@@ -28,7 +29,9 @@ export default function LastestApplications() {
   return (
     <div className="latest-applications-container">
       <Container >
-        {latestApplications.length > 0 ? (
+        {error ? (
+          <div className="alert alert-danger text-center">{error}</div>
+        ) : latestApplications.length > 0 ? (
           latestApplications.map((app, index) => (
             <Card key={index} className="mb-4 shadow-sm" data-status={app.status?.toLowerCase()} onClick={() => navigateCardDetails(app)}>
               <Card.Body>

@@ -60,3 +60,17 @@ export async function fetchApplicationDetails(id) {
         throw new Error("Failed to fetch application details. Please try again.");
     }
 }
+
+export async function fetchApplicationCV(id) {
+    try {
+        const response = await axios.get(`${API_URL}/applications/${id}/cv`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+        return response.data.url;
+    } catch (error) {
+        console.error("Error fetching application CV:", error);
+        throw new Error("Failed to fetch application CV. Please try again.");
+    }
+}
