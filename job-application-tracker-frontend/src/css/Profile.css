@@ -1,0 +1,99 @@
+.profile-page {
+  min-height: calc(100vh - 70px); /* adjust for header height */
+  background: linear-gradient(135deg, #1f1f23 0%, #764ba2 100%);
+  padding: 1rem;
+}
+
+.profile-title {
+  color: #bd9bde;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  font-size: 2.4rem;
+  text-shadow: 0 2px 12px rgba(46, 11, 70, 0.35);
+}
+
+.profile-card {
+  background: linear-gradient(135deg, #f8f5ff 0%, #f0e8ff 100%);
+  border: none;
+  border-radius: 20px;
+  max-width: 720px;
+  margin: 0 auto;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.35),
+    0 10px 25px -5px rgba(0, 0, 0, 0.25);
+  transform: translateY(-6px);
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.profile-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 
+    0 40px 80px -20px rgba(0, 0, 0, 0.45),
+    0 15px 35px -10px rgba(0, 0, 0, 0.3);
+}
+
+.profile-header {
+  background: linear-gradient(135deg, #2e0b46, #4a1e70);
+  color: white;
+  font-size: 1.45rem;
+  font-weight: 700;
+  padding: 1.2rem;
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+  text-align: center;
+}
+
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.2rem;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 12px;
+  border: 1px solid rgba(99, 42, 149, 0.15);
+  transition: all 0.25s ease;
+  width: 100%;
+}
+
+.profile-field:hover {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 16px rgba(99, 42, 149, 0.15);
+}
+
+.field-label {
+  font-size: 0.95rem;
+  color: #4a2c6e;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.field-value {
+  font-size: 1.15rem;
+  color: #2e0b46;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.profile-card img {
+  transition: transform 0.3s ease;
+}
+
+.profile-card img:hover {
+  transform: scale(1.06);
+}
+
+@media (max-width: 576px) {
+  .profile-title {
+    font-size: 2rem;
+  }
+
+  .profile-card {
+    transform: translateY(-4px);
+  }
+
+  .card-body {
+    padding: 2rem 1.5rem !important;
+  }
+}
