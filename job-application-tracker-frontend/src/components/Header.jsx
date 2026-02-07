@@ -4,6 +4,7 @@ import { FaUserCircle, FaBars} from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import '../css/Header.css';
+import LogOut from "./LogOut";
 
 export default function Header({ toggleSidebar }) {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ export default function Header({ toggleSidebar }) {
             <FaUserCircle size={28} />
           </Button>
 
-          {/*<Logout/>*/}
+          <LogOut />
         </Nav>
       </Container>
     </Navbar>

@@ -8,6 +8,7 @@ import HomeLayout from './layouts/HomeLayout';
 import NewApplication from './components/NewApplication';
 import SearchApplications from './components/SearchApplications';
 import Profile from './components/Profile';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   
@@ -17,11 +18,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route  element={<HomeLayout />} >
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/addNew" element={<NewApplication />} />
-          <Route path="/search" element={<SearchApplications />} />
-          <Route path="/profile" element={<Profile />} />
+        <Route element={<PrivateRoute />} >
+          <Route  element={<HomeLayout />} >
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/addNew" element={<NewApplication />} />
+            <Route path="/search" element={<SearchApplications />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
         </Route>
       </Routes>
     </Router>
