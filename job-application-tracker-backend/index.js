@@ -9,6 +9,7 @@ import searchApplicationsRoute from './routes/searchApplicationsRoute.js';
 import fetchProfileInfoRoute from './routes/fetchProfileInfoRoute.js';
 import fetchApplicationDetailsRoute from './routes/fetchApplicationDetailsRoute.js';
 import applicationFileRoutes from './routes/applicationFileRoutes.js';
+import generateOverviewRoute from './routes/generateOverviewRoute.js';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -49,6 +50,9 @@ app.use('/applications', fetchApplicationDetailsRoute);
 
 // get the file
 app.use('/applications', applicationFileRoutes)
+
+//generate overview route
+app.use('/overview', generateOverviewRoute);
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
