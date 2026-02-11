@@ -74,6 +74,7 @@ export default function NewApplication() {
                 const response = await saveApplication({applicationData}); 
                 console.log("Application saved successfully:", response);
                 if (response.success) {
+                    props.onAdded();// refresh the application list in dashboard
                     navigate("/dashboard");
                 }
 

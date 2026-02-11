@@ -16,11 +16,11 @@ export async function saveApplication({applicationData}) {
     formData.append("notes", applicationData.notes);
     formData.append("resume", applicationData.resume); 
     formData.append("application_date", applicationData.application_date);
-    const token = localStorage.getItem("token");
 
     const API_URL = import.meta.env.VITE_API_URL;
 
     try {
+        const token = localStorage.getItem('token');
         const response = await axios.post(`${API_URL}/application`, formData, {
             headers: {
                 "Content-Type": "multipart/form-data",

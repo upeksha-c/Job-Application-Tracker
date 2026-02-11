@@ -2,15 +2,17 @@ import React from 'react'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import '../css/Login.css';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { loginUser } from './loginSignupService';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../contexts/UserContext.jsx';
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState({});
     const navigation = useNavigate();
+    const { setUser } = useContext(UserContext); 
 
     // Handle form submission
     const handleLogin = async(e) => {
@@ -32,7 +34,7 @@ export default function Login() {
             try {
                 const response = await loginUser({email, password});
                 localStorage.setItem('token', response.token);
-                localStorage.setItem('user', JSON.stringify(response.user))
+                setUser(response.user);
                 console.log("token:", response.token);
                 navigation("/dashboard");
             } catch (err) {

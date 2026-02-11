@@ -2,13 +2,17 @@ import React from 'react'
 import { Button } from 'react-bootstrap';
 import { FaSignOutAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../contexts/UserContext.jsx';
+import { useContext } from 'react';
 
 export default function LogOut() {
     const navigate = useNavigate();
+    const { setUser } = useContext(UserContext); // Access setUser from UserContext
+    
     const handleLogout = () => {
         localStorage.removeItem('token');
-        localStorage.removeItem('user');
         sessionStorage.clear();  
+        setUser(null);
         navigate('/', { replace: true });
     }
   return (
