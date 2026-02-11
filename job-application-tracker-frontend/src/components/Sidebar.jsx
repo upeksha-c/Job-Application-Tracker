@@ -19,7 +19,7 @@ export default function Sidebar({ show, onHide }) {
     { path: "/dashboard", icon: <FaTachometerAlt />, label: "Dashboard" },
     { path: "/search", icon: <FaBook />, label: "Search" },
     { path: "/addNew", icon: <FaUniversity  />, label: "New Application" },
-    { path: "/reports", icon: <FaChartBar />, label: "Reports" },
+    { path: "/analysis-summary", icon: <FaChartBar />, label: "Application Analysis" },
     { path: "/profile", icon: <FaUser />, label: "Profile" },
   ];
 

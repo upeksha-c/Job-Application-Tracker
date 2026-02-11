@@ -10,6 +10,7 @@ import SearchApplications from './components/SearchApplications';
 import Profile from './components/Profile';
 import PrivateRoute from './components/PrivateRoute';
 import ApplicationDetails from './components/ApplicationDetails';
+import ApplicationAnalysisSummary from './components/ApplicationAnalysisSummary';
 
 function App() {
   
@@ -26,6 +27,7 @@ function App() {
             <Route path="/search" element={<SearchApplications />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/applications/:id" element={<ApplicationDetails />}  />
+            <Route path="/analysis-summary" element={<ApplicationAnalysisSummary />}  />
           </Route>
         </Route>
       </Routes>
