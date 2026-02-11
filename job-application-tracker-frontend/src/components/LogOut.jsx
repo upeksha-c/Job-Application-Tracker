@@ -7,6 +7,7 @@ export default function LogOut() {
     const navigate = useNavigate();
     const handleLogout = () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('user');
         navigate('/', { replace: true });
     }
   return (
