@@ -8,6 +8,7 @@ export default function LogOut() {
     const handleLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
+        sessionStorage.clear();  
         navigate('/', { replace: true });
     }
   return (
